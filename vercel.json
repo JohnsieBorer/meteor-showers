@@ -1,0 +1,8 @@
+{
+  "builds": [
+    { "src": "showers.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "showers.js" }
+  ]
+}
