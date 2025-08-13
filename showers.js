@@ -12,7 +12,8 @@ const logger = new (winston.Logger)({
 });
 
 const app = express();
-const isDev = app.get('env') === 'development';
+// const isDev = app.get('env') === 'development';
+const isDev = true;
 
 app.enable('trust proxy');
 app.set('views', `${__dirname}/templates`);
@@ -61,6 +62,7 @@ app.get('/view/:shower', (req, res) => {
 
 const port = process.env.PORT || 8988;
 const server = app.listen(port);
+logger.info('isDev:', isDev);
 logger.info('NODE_ENV:', process.env.NODE_ENV);
 logger.info('Running on port', port);
 

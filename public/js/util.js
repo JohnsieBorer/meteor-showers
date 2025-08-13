@@ -1,8 +1,13 @@
-function toJED(d){
-  // TODO precompute constants
-  return Math.floor((d.getTime() / (1000 * 60 * 60 * 24)) - 0.5) + 2440588;
+// 修正后的toJED函数
+function toJED(d) {
+    // 计算UTC时间戳对应的天数（保留小数）
+    const daysSinceEpoch = d.getTime() / (1000 * 60 * 60 * 24);
+    // 转换为JED（使用四舍五入避免整数时间戳的取整误差）
+    return Math.round(daysSinceEpoch) + 2440587.5;
+    // 注：2440587.5是1970-01-01 UTC对应的JED，比原代码更准确
 }
 
+// 保持fromJED函数不变（因jed_delta=0，后续不会变化）
 function fromJED(jed) {
   return new Date(1000*60*60*24 * (0.5 - 2440588 + jed));
 }

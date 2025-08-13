@@ -39,13 +39,14 @@
 <body>
   <div id="summary" class="maximized">
     <span id="normal-summary">
-      <h2><span id="meteor-shower-name">{{showerCloud.name}}</span> meteor shower</h2>
-      <span class="description">
-        This shower peaks in <span id="meteor-shower-peak">{{showerCloud.peak}}</span>, when Earth intersects the dust cloud left by <span id="meteor-shower-source-type">{{showerCloud.source_type}}</span> <a target="_blank" href="{{showerCloud.spaceref_url}}" id="meteor-shower-object-name">{{showerCloud.source_name}}</a>.  <a class="iframe-hide-container" href="#faq-modal" rel="modal:open">Learn more.</a>
-        <span class="iframe-show-container" style="display:none">
-          <a target="_blank" href="https://www.meteorshowers.org">View more showers.</a>
-        </span>
-      </span>
+      <h2>生日快乐</h2>
+{#      <span class="description">#}
+{#        This shower peaks in <span id="meteor-shower-peak">{{showerCloud.peak}}</span>, when Earth intersects the dust cloud left by <span id="meteor-shower-source-type">{{showerCloud.source_type}}</span> <a target="_blank" href="{{showerCloud.spaceref_url}}" id="meteor-shower-object-name">{{showerCloud.source_name}}</a>.  <a class="iframe-hide-container" href="#faq-modal" rel="modal:open">Learn more.</a>#}
+{#        <span class="iframe-show-container" style="display:none">#}
+{#          <a target="_blank" href="https://www.meteorshowers.org">View more showers.</a>#}
+{#        </span>#}
+{#      </span>#}
+        <span>英仙座流星雨送给小朋友，不必担心，随时都在</span>
     </span>
     <span id="view-all-summary" style="display:none">
       <h2>All major meteor showers</h2>
@@ -57,24 +58,26 @@
       <a target="_blank" href="https://www.meteorshowers.org">View more showers.</a>
     </span>
 
-    <span class="share-buttons">
-      <span><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.meteorshowers.org" title="Share on Facebook" target="_blank" oncspanck="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="/img/flat_web_icon_set/black/Facebook.png"></a></span>
-      <span><a href="https://twitter.com/intent/tweet?source=https://www.meteorshowers.org&text=https://www.meteorshowers.org&via=iwebst" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?via=iwebst&text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="/img/flat_web_icon_set/black/Twitter.png"></a></span>
-      <span><a href="https://plus.google.com/share?url=https://www.meteorshowers.org" title="Share on Google+" target="_blank"><img src="/img/flat_web_icon_set/black/Google+.png"></a></span>
-      <span><a href="mailto:?subject=&body=https://www.meteorshowers.org" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img src="/img/flat_web_icon_set/black/Email.png"></a></span>
-    </span>
-    <div class="shower-details-container iframe-hide-container">
+{#    <span class="share-buttons">#}
+{#      <span><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.meteorshowers.org" title="Share on Facebook" target="_blank" oncspanck="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="/img/flat_web_icon_set/black/Facebook.png"></a></span>#}
+{#      <span><a href="https://twitter.com/intent/tweet?source=https://www.meteorshowers.org&text=https://www.meteorshowers.org&via=iwebst" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?via=iwebst&text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="/img/flat_web_icon_set/black/Twitter.png"></a></span>#}
+{#      <span><a href="https://plus.google.com/share?url=https://www.meteorshowers.org" title="Share on Google+" target="_blank"><img src="/img/flat_web_icon_set/black/Google+.png"></a></span>#}
+{#      <span><a href="mailto:?subject=&body=https://www.meteorshowers.org" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img src="/img/flat_web_icon_set/black/Email.png"></a></span>#}
+{#    </span>#}
+{#    <div class="shower-details-container iframe-hide-container">#}
+    <div class="shower-details-container">
       <p>
-        View <select id="shower-select"></select> <span class="mobile-hide-container">on <span id="current-date" title="Adjust this date at the top right"></span></span>
+        <span style="display: none">View <select id="shower-select"></select> <span class="mobile-hide-container">on </span><span id="current-date" title="Adjust this date at the top right"></span></span>
       </p>
       <p>
-        <span id="restore-view" class="button">Solar System</span>
-        <span id="lock-earth" class="button">Follow Earth</span>
-        <span id="lock-earth-view" class="button">Watch from Earth</span>
-        <span id="btn-iau-input" class="button mobile-hide-container">Input IAU Number</span>
+        <span id="restore-view" class="button">太阳系</span>
+        <span id="lock-earth" class="button">瞅瞅地球</span>
+        <span id="lock-earth-view" class="button">抬头看</span>
+        <span id="btn-iau-input" style="display: none" class="button mobile-hide-container">Input IAU Number</span>
       </p>
     </div>
-    <div class="iframe-hide-container">
+{#    <div class="iframe-hide-container">#}
+    <div>
       <span class="hide-summary toggle-summary">-</span>
       <span class="show-summary toggle-summary">+</span>
     </div>
@@ -83,7 +86,8 @@
   <!-- Three.JS Container -->
   <div id="container"></div>
 
-  <div id="sky-map" class="mobile-hide-container iframe-hide-container" style="display: none">
+{#  <div id="sky-map" class="mobile-hide-container iframe-hide-container" style="display: none">#}
+  <div id="sky-map" class="mobile-hide-container" style="display: none">
     <img src="img/skymaps/perseids_north.jpg">
     <span>Source: meteorshowersonline.com</span>
   </div>
@@ -128,12 +132,12 @@
     </div>
   </div>
 
-  <div id="instructions" class="iframe-hide-container mobile-hide-container">
-    Click and drag to turn &middot; Right click to pan &middot; Scroll to zoom
-  </div>
-  <div id="copyright" class="iframe-hide-container mobile-hide-container">
-    Meteor data from <a target="_blank" href="https://en.wikipedia.org/wiki/Peter_Jenniskens">Peter Jenniskens</a>, visualization developed by <a target="_blank" href="http://www.ianww.com">Ian Webster</a>
-  </div>
+{#  <div id="instructions" class="iframe-hide-container mobile-hide-container">#}
+{#    Click and drag to turn &middot; Right click to pan &middot; Scroll to zoom#}
+{#  </div>#}
+{#  <div id="copyright" class="iframe-hide-container mobile-hide-container">#}
+{#    Meteor data from <a target="_blank" href="https://en.wikipedia.org/wiki/Peter_Jenniskens">Peter Jenniskens</a>, visualization developed by <a target="_blank" href="http://www.ianww.com">Ian Webster</a>#}
+{#  </div>#}
 
 
   <!-- Nav and other interesting things -->
@@ -147,10 +151,10 @@
     <p id="loading-message"></p>
   </div>
 
-  <div id="ianww" class="iframe-show-container" style="display:none">
-    <!--<a id="ianww-link" href="http://www.ianww.com/" target="_blank">Visualization by Ian Webster</a>-->
-    <a id="ianww-link" href="https://www.meteorshowers.org/" target="_blank">MeteorShowers.org</a>
-  </div>
+{#  <div id="ianww" class="iframe-show-container" style="display:none">#}
+{#    <!--<a id="ianww-link" href="http://www.ianww.com/" target="_blank">Visualization by Ian Webster</a>-->#}
+{#    <a id="ianww-link" href="https://www.meteorshowers.org/" target="_blank">MeteorShowers.org</a>#}
+{#  </div>#}
 
   <script type="x-shader/x-vertex" id="orbit-vertex-shader">
     // MIT License.
@@ -324,7 +328,7 @@
     <script src="{{url}}"></script>
   {% endfor %}
 {% else %}
-  <script src="/dist/bundle-20200119-1579462493.js"></script>
+  <script src="/dist/bundle-20250812-1754987229.js"></script>
 {% endif %}
 
 <!-- start Mixpanel --><script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,

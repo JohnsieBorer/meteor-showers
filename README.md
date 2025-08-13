@@ -14,7 +14,7 @@ This is a modified version of [Asterank](http://github.com/typpo/asterank)'s 3D 
 
 `npm install` or `yarn install` to install dependencies.
 
-Run `node showers.js` to start the app on port 8988 (http://localhost:8988/)
+Run `node showers.js` / (windows) `set NODE_ENV=development && node showers.js` to start the app on port 8988 (http://localhost:8988/)
 
 A very rudimentary JS bundle is used to prepare the app for production.  Running `./build.sh` will generate a new bundle file.  Add this file to git and update the bundle in index.html.
 

@@ -9,7 +9,7 @@
   opts.default_camera_position = opts.camera_position || [0, -136, 113];
   opts.camera_fly_around = typeof opts.camera_fly_around === 'undefined' ?
     true : opts.camera_fly_around;
-  opts.jed_delta = opts.jed_delta || 0.75;
+  opts.jed_delta = opts.jed_delta || 0;
   opts.custom_object_fn = opts.custom_object_fn || null;
   opts.object_texture_path = opts.object_texture_path ||
     opts.static_prefix + 'img/cloud4.png';
@@ -48,7 +48,7 @@
     , planets = []
     , planet_orbits_visible = true
     , source_orbit = null
-    , jed = toJED(new Date())
+    , jed = toJED(new Date(2025,7,13))
     , particle_system_geometry = null
     , particles_loaded = false
     , display_date_last_updated = 0
@@ -307,7 +307,7 @@
       added_objects.push(orbit);
     } // end particle results for loop
 
-    jed = toJED(new Date());  // reset date
+    // jed = toJED(new Date());  // reset date
     if (!particles_loaded) {
       particles_loaded = true;
     }
@@ -331,10 +331,10 @@
 
   function initGUI() {
     var ViewUI = function() {
-      this['Date'] = '12/26/2012';
-      this['Speed'] = opts.jed_delta;
-      this['Show orbits'] = planet_orbits_visible;
-      this['Show Milky Way'] = opts.milky_way_visible;
+      this['Date'] = '8/13/2025';
+      this['飞行速度'] = opts.jed_delta;
+      this['显示星轨'] = planet_orbits_visible;
+      this['显示银河'] = opts.milky_way_visible;
     };
 
     window.onload = function() {
@@ -350,15 +350,15 @@
           }
         }
       }).listen();
-      gui.add(text, 'Speed', 0, 15).onChange(function(val) {
+      gui.add(text, '飞行速度', 0, 15).onChange(function(val) {
         opts.jed_delta = val;
         var was_moving = object_movement_on;
         object_movement_on = opts.jed_delta > 0;
       });
-      gui.add(text, 'Show orbits').onChange(function() {
+      gui.add(text, '显示星轨').onChange(function() {
         togglePlanetOrbits();
       });
-      gui.add(text, 'Show Milky Way').onChange(function() {
+      gui.add(text, '显示银河').onChange(function() {
         toggleMilkyWay();
       });
       window.datgui = text;
